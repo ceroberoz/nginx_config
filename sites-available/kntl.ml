@@ -38,7 +38,11 @@ server {
 	# Add index.php to the list if you are using PHP
 	index index.php index.html index.htm index.nginx-debian.html;
 
-		server_name kntl.ml www.kntl.ml;
+	server_name kntl.ml www.kntl.ml;
+	
+	# Enable log per apps
+	access_log /var/www/html/kntl.ml/log/access_website.log
+	error_log /var/www/html/kntl.ml/log/error_website.log
 
 	location / {
 		# First attempt to serve request as file, then

@@ -40,6 +40,10 @@ server {
 
 	server_name m.kntl.ml www.m.kntl.ml;
 
+	# Enable log per apps
+        access_log /var/www/html/kntl.ml/log/access_m.log
+        error_log /var/www/html/kntl.ml/log/error_m.log
+
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
