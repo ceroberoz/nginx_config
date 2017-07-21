@@ -1,1 +1,1 @@
-m.kntl.ml
+/etc/nginx/sites-available/m.kntl.ml

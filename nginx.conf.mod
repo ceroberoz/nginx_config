@@ -1,9 +1,9 @@
 user www-data;
-worker_processes auto;
+worker_processes 1;
 pid /run/nginx.pid;
 
 events {
-	worker_connections 768;
+	worker_connections 1024;
 	# multi_accept on;
 }
 
@@ -16,9 +16,14 @@ http {
 	sendfile on;
 	tcp_nopush on;
 	tcp_nodelay on;
-	keepalive_timeout 65;
+	#keepalive_timeout 65;
 	types_hash_max_size 2048;
-	# server_tokens off;
+	server_tokens off;
+
+	client_body_timeout 12;
+	client_header_timeout 12;
+	keepalive_timeout 15;
+	send_timeout 10;
 
 	server_names_hash_bucket_size 64;
 	# server_name_in_redirect off;
@@ -36,6 +41,7 @@ http {
 	##
 	# Logging Settings
 	##
+	# access_log off;
 
 	access_log /var/log/nginx/access.log;
 	error_log /var/log/nginx/error.log;
@@ -44,12 +50,17 @@ http {
 	# Gzip Settings
 	##
 
-	gzip on;
+	#gzip on;
+	gzip             on;
+	gzip_comp_level  2;
+	gzip_min_length  1000;
+	gzip_proxied     expired no-cache no-store private auth;
+	gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
 	gzip_disable "msie6";
 
 	# gzip_vary on;
 	# gzip_proxied any;
-	# gzip_comp_level 6;
+	# gzip_comp_level 2;
 	# gzip_buffers 16 8k;
 	# gzip_http_version 1.1;
 	# gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;

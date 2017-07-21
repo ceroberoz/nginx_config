@@ -41,8 +41,8 @@ server {
 	server_name cdn.kntl.ml www.cdn.kntl.ml;
 
 	# Enable log per apps
-        access_log /var/www/html/kntl.ml/log/access_cdn.log
-        error_log /var/www/html/kntl.ml/log/error_cdn.log
+        access_log /var/www/html/kntl.ml/log/access_cdn.log;
+        error_log /var/www/html/kntl.ml/log/error_cdn.log;
 
 	location / {
 		# First attempt to serve request as file, then

@@ -33,16 +33,12 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	root /var/www/html/kntl.ml/html/m;
+	root /var/www/html/kntl.ml/html/api/public;
 
 	# Add index.php to the list if you are using PHP
 	index index.php index.html index.htm index.nginx-debian.html;
 
-	server_name m.kntl.ml www.m.kntl.ml;
-
-	# Enable log per apps
-        access_log /var/www/html/kntl.ml/log/access_m.log;
-        error_log /var/www/html/kntl.ml/log/error_m.log;
+	server_name api.kntl.ml www.api.kntl.ml;
 
 	location / {
 		# First attempt to serve request as file, then

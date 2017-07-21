@@ -35,14 +35,14 @@ server {
 
 	root /var/www/html/kntl.ml/html/api/public;
 
+	# Enable log per apps
+        access_log /var/www/html/kntl.ml/log/access_api.log;
+        error_log /var/www/html/kntl.ml/log/error_api.log;
+
 	# Add index.php to the list if you are using PHP
 	index index.php index.html index.htm index.nginx-debian.html;
 
 	server_name api.kntl.ml www.api.kntl.ml;
-
-	# Enable log per apps
-        access_log /var/www/html/kntl.ml/log/access_api.log
-        error_log /var/www/html/kntl.ml/log/error_api.log
 
 	location / {
 		# First attempt to serve request as file, then

@@ -1,1 +1,1 @@
-cdn.kntl.ml
+/etc/nginx/sites-available/cdn.kntl.ml
